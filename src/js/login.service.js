@@ -15,10 +15,10 @@
 
 
     /**
-     * Retrieves the staff's login info
+     * Allows staff to log in
      * @return {Promise}
      */
-    function getsLoginInfo() {
+    function login() {
 
       return $http({
         url: 'https://penguin-hotelier-api.herokuapp.com/api/Staffs/login',
@@ -27,8 +27,8 @@
           'Content-Type': 'application/json'
         },
         data: {
-          'email': 'jordan@hotelier.com',
-          'password': 'foobar'
+          'email': '',
+          'password': ''
         }
       })
       .then(function handleResponse(responseObj) {
@@ -39,7 +39,7 @@
     }
 
     return {
-      getsLoginInfo: getsLoginInfo
+      login: login
     };
 
   }

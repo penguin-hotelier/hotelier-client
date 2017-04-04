@@ -14,10 +14,9 @@
     let vm = this;
 
     vm.getLoginInfo = function getLoginInfo() {
-      
-    }
+      console.log('get login info');
+    };
+    vm.getLoginInfo();
   }
-
-
 
 }());

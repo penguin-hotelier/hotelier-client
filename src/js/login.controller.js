@@ -13,10 +13,9 @@
   function LoginController() {
     let vm = this;
 
-    vm.getLoginInfo = function getLoginInfo() {
+    vm.login = function login() {
       console.log('get login info');
     };
-    vm.getLoginInfo();
   }
 
 }());

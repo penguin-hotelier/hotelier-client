@@ -1,11 +1,20 @@
-.wip {
-  background-image: url(images/hotel-389256_1280.jpg);
-  height: 100vh;
+header {
+  background-image: url(images/red-wall.jpg);
+  height: 25vh;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
+  color: white;
+  h1 {
+    padding-top: 1.5em;
+  }
+}
+.wip {
   h1 {
     font-size: 32pt;
   }
+}
+
+footer {
+  background-color: black;
+  color: white;
 }

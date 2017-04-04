@@ -4,12 +4,18 @@
   angular.module('hotelier')
     .controller('LoginController', LoginController);
 
+  LoginController.$inject = ['$state', 'LoginService'];
+
   /**
    * Handles the staff login
    * @return {void}
    */
   function LoginController() {
-    
+    let vm = this;
+
+    vm.getLoginInfo = function getLoginInfo() {
+      
+    }
   }
 
 

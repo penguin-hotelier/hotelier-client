@@ -13,13 +13,15 @@
   function LoginController($state, UserService) {
     let vm = this;
 
+    vm.loginInfo = {};
 
     /**
      * Staff login
-     * @return {Object} Returns staff member's information 
+     * @param {Object} loginInfo Staff login credentials
+     * @return {void}
      */
-    vm.login = function login() {
-      console.log('get login info');
+    vm.login = function login(loginInfo) {
+      console.log('get login info', loginInfo);
     };
   }
 

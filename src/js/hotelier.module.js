@@ -4,9 +4,11 @@
   angular.module('hotelier', ['ui.router'])
     .config(routerConfig);
 
-  routingConfig.$inject = ['$stateProvider'];
+  routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+  function routerConfig($stateProvider, $urlRouterProvider) {
 
-  function routerConfig($stateProvider) {
+    $urlRouterProvider.when('', '/');
+
     $stateProvider
       .state({
         name: 'login',
@@ -21,6 +23,11 @@
         templateUrl: 'views/make-reservation.template.html',
         controller: 'ReservationController',
         controllerAs: 'resCtrl'
+      })
+      .state({
+        name: 'home',
+        url: '/',
+        templateUrl: 'views/WIP-home.template.html'
       });
   }
 

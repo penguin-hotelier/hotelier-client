@@ -7,7 +7,7 @@
   UserService.$inject = ['$http'];
 
   /**
-   * Creates a new LoginService
+   * Creates a new UserService
    * @param {Function}  $http The service for making ajax calls
    * @return {Object}         The service's API methods
    */

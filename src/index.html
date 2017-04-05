@@ -6,6 +6,7 @@
         <meta name='description' content=''>
         <meta name='author' content=''>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel='stylesheet' href='style.css'>
     </head>
     <body>
@@ -18,9 +19,44 @@
             <h1>Hotelier - site under construction</h1>
           </section>
         </main>
+        <main>
+          <section>
+            <h2>Create New Reservation</h2>
+            <form class="form">
+              <section class="form-group form-inline">
+                <label for="checkIn">Check in</label>
+                <input type="date" class="form-control" id="checkIn" placeholder="Email">
+
+                <label for="checkOut">Check out</label>
+                <input type="date" class="form-control" id="checkOut" placeholder="Password">
+              </section>
+              <section class="form-group form-inline">
+                <label for="numGuests">Number of Guests</label>
+                <input type="number" class="form-control" id="numGuests" min="1" placeholder="1";>
+              </section>
+              <section class="form-group form-inline">
+                <label for="Guest">Guest</label>
+                <input type="number" class="form-control" id="Guest" min="1" placeholder="Guest ID #";>
+
+                <label for="Room">Room</label>
+                <input type="number" class="form-control" id="Room" min="1" placeholder="Room ID #";>
+              </section>
+              <button type="submit" class="btn btn-primary">Make Reservation</button>
+            </form>
+
+            <section ng-controller='ReservationController as resCtrl'>
+              <p>{{resCtrl.reservations}}</p>
+            </section>
+          </section>
+        </main>
+
+
         <footer>&copy; 2016 The Iron Yard Students</footer>
 
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+        <script src='//unpkg.com/angular-ui-router/release/angular-ui-router.min.js'></script>
         <script src='/js/hotelier.module.js'></script>
+        <script src='/js/reservation.service.js'></script>
+        <script src='/js/reservation.controller.js'></script>
     </body>
 </html>

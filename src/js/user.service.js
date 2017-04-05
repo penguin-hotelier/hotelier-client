@@ -13,12 +13,31 @@
    */
   function UserService($http) {
 
+    let token;
 
     /**
-     * Allows staff to log in
+     * Returns the authorization token
+     * @return {String} The individual token for a user
+     */
+    function getToken() {
+      return token;
+    }
+
+    /**
+     * Allows user to log out of system
+     * @return {void}
+     */
+    function logout() {
+      token = null;
+    }
+
+    /**
+     * Log in staff with the API given user provided credentials
+     * @param {String} email
+     * @param {String} password
      * @return {Promise}
      */
-    function login() {
+    function login(email, password) {
 
       return $http({
         url: 'https://penguin-hotelier-api.herokuapp.com/api/Staffs/login',
@@ -27,19 +46,21 @@
           'Content-Type': 'application/json'
         },
         data: {
-          'email': '',
-          'password': ''
+          'email': email,
+          'password': password
         }
       })
       .then(function handleResponse(responseObj) {
-        console.log(responseObj.status);
-        return responseObj.data;
+        console.log('handleResponse', responseObj);
+        token = responseObj.data.id;
       });
 
     }
 
     return {
-      login: login
+      login: login,
+      getToken: getToken,
+      logout: logout
     };
 
   }

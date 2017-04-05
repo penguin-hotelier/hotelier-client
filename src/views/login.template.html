@@ -1,26 +1,19 @@
-<h2>Staff Log In</h2>
+<main ng-controller='LoginController as loginCtrl'>
 
-<header ng-controller='LoginController as loginCtrl'>
+  <h2>Staff Log In</h2>
 
-  <section class='alert alert-warning'>
-    <p ng-cloak ng-show='staff-login.email.$touched && !staff-login.email.$valid && !staff-login.password.$valid'>
-      Sorry, but that is not the correct email and/or password.
-    </p>
-  </section>
-
-  <form name='staff-login' ng-submit='loginCtrl.login()'>
+  <form name='staff-login' ng-submit='loginCtrl.login(loginCtrl.loginInfo); staff-login.$setPristine(); staff-login.$setUntouched()' novalidate>
     <aside>
       <label for='staff-email-for-login'>Email</label>
-      <input type='email' class='form-control' placeholder='Staff Email' name='email' id='staff-email-for-login' required>
+      <input type='email' class='form-control' placeholder='Staff Email' name='email' id='staff-email-for-login' ng-model='loginCtrl.loginInfo.email' required>
     </aside>
 
     <aside>
       <label for='staff-password-for-login'>Password</label>
-      <input type='text' class='form-control' name='password' id='staff-password-for-login' required>
+      <input type='password' class='form-control' placeholder='Password' name='password' id='staff-password-for-login' ng-model='loginCtrl.loginInfo.password' required>
     </aside>
+
+    <input type='submit' class='btn btn-default' value='Log In'>
   </form>
 
-</header>
-
-  <input type='submit' class='btn btn-default' value='Log In'>
-</form>
+</main>

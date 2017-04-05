@@ -13,6 +13,11 @@
   function LoginController($state, UserService) {
     let vm = this;
 
+
+    /**
+     * Staff login
+     * @return {Object} Returns staff member's information 
+     */
     vm.login = function login() {
       console.log('get login info');
     };

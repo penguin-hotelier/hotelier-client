@@ -5,6 +5,7 @@
     .config(routerConfig);
 
   routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+
   function routerConfig($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when('', '/');

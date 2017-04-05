@@ -21,7 +21,6 @@
      * @return {void}
      */
     vm.login = function login(loginInfo) {
-      console.log('get login info', loginInfo);
       UserService.login(loginInfo.email, loginInfo.password)
         .then(function sendUserHome() {
           $state.go('home');

@@ -5,8 +5,10 @@
     .config(routerConfig);
 
   routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-
   function routerConfig($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.when('', '/');
+
     $stateProvider
       .state({
         name: 'login',
@@ -14,6 +16,11 @@
         templateUrl: 'views/login.template.html',
         controller: 'LoginController',
         controllerAs: 'loginCtrl'
+      })
+      .state({
+        name: 'home',
+        url: '/',
+        templateUrl: 'views/WIP-home.template.html'
       });
   }
 

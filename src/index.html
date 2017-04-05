@@ -3,26 +3,28 @@
 <head>
   <meta charset='utf-8'>
   <title>Hotelier</title>
-  <meta name='description' content=''>
-  <meta name='author' content=''>
+  <meta name='description' content='a single page application website for handling reservations for a hotel system. This services a fictional hotel system.'>
+  <meta name='author' content='Team Penguin: David Steed, Sarah Smith, Nadia Mughel, Brian Fiala'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
-  <link rel='stylesheet' href='style.css'>
   <!-- Bootstrap CSS -->
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+  <link rel='stylesheet' href='style.css'>
 </head>
 <body>
   <header>
     <h1>Hotelier</h1>
     <h4>Easier reservations for tomorrow, today.</h4>
-    <nav class='navbar navbar-default'>
-      <ul>
-        <li><a>this is a link</a>
+    <nav class='navbar navbar-default navbar-inverse'>
+      <section class='container-fluid'>
+      <ul class='nav navbar-nav'>
+        <li><a ui-sref='home' >home</a>
         </li>
-        <li><a>this is a link</a>
+        <li><a ui-sref='about' >about our hotel</a>
         </li>
-        <li><a>this is a link</a>
+        <li><a ui-sref='login' >log in</a>
         </li>
       </ul>
+      </section>
     </nav>
   </header>
   <main>
@@ -33,6 +35,8 @@
   <footer>&copy; 2016 The Iron Yard Students</footer>
 
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
   <script src='/js/hotelier.module.js'></script>
 </body>
 </html>

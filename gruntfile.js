@@ -30,7 +30,6 @@ module.exports = function(grunt) {
           }
         ]
       }
-
     },
 
     sass: {
@@ -76,11 +75,11 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         src: [
-        'node_modules/angular/angular.js',
-        'node_modules/angular-mocks/angular-mocks.js',
-        'node_modules/angular-ui-router/release/angular-ui-router.js',
-        'src/js/hotelier.module.js',
-        'src/js/**/*.js'
+          'node_modules/angular/angular.js',
+          'node_modules/angular-mocks/angular-mocks.js',
+          'node_modules/angular-ui-router/release/angular-ui-router.js',
+          'src/js/hotelier.module.js',
+          'src/js/**/*.js'
         ],
         dest: 'build/js/app.js'
       }

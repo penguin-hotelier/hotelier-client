@@ -16,7 +16,7 @@ module.exports = function(grunt) {
           },
           { expand: true,
             cwd: 'src/views/',
-            src: '/views/*.template.html',
+            src: '*.template.html',
             dest: 'build/views/'
           }
         ]
@@ -24,9 +24,23 @@ module.exports = function(grunt) {
       image: {
         files: [
           { expand: true,
-            cwd: 'src/images/',
-            src: '*.jpg',
-            dest: 'build/images/'
+            cwd: 'src/',
+            src: 'images/*.*',
+            dest: 'build/'
+          }
+        ]
+      },
+      node_modules: {
+        files: [
+          { expand: true,
+            cwd: 'node_modules/angular/',
+            src: 'angular.js',
+            dest: 'build/js/'
+          },
+          { expand: true,
+            cwd: 'node_modules/angular-ui-router/release/',
+            src: 'angular-ui-router.js',
+            dest: 'build/js/'
           }
         ]
       }
@@ -75,9 +89,6 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         src: [
-          'node_modules/angular/angular.js',
-          'node_modules/angular-mocks/angular-mocks.js',
-          'node_modules/angular-ui-router/release/angular-ui-router.js',
           'src/js/hotelier.module.js',
           'src/js/**/*.js'
         ],

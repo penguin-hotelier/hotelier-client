@@ -38,8 +38,8 @@
      * @return {Promise}
      */
     function login(email, password) {
-      if (!email.length || !password.length) {
-        return Promise.reject();
+      if (typeof(email) !== 'string' || typeof(password) !== 'string' ||  !email.length || !password.length) {
+        return Promise.reject('Valid credentials are required to login');
       }
 
       return $http({

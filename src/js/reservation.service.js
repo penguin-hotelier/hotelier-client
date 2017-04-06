@@ -30,7 +30,15 @@
     }
 
     function makeReservation(newRes) {
-      console.log('ResSvc.makeRes called');
+      let jsonObj = {checkinDate: newRes.checkinDate,
+        checkoutDate: newRes.checkoutDate,
+        numberOfGuests: newRes.numberOfGuests.toString(),
+        guestId: newRes.guestId.toString(),
+        roomId: newRes.roomId
+      };
+      // console.log('before stringifying:', jsonObj);
+      jsonObj = angular.toJson(jsonObj);
+      console.log('jsonObj is ', jsonObj);
       return $http({
         url: 'https://penguin-hotelier-api.herokuapp.com/api/Reservations',
         method: 'post',
@@ -38,13 +46,14 @@
           'Content-Type': 'application/JSON',
           'Authorization': UserService.getToken()
         },
-        data: {
-          'checkinDate': newRes.checkinDate,
-          'checkoutDate': newRes.checkoutDate,
-          'numberOfGuests': newRes.numberOfGuests,
-          'guestId': newRes.guestId,
-          'roomId': newRes.roomId
-        }
+        data: jsonObj
+        // data: {
+        //   'checkinDate': newRes.checkinDate,
+        //   'checkoutDate': newRes.checkoutDate,
+        //   'numberOfGuests': newRes.numberOfGuests,
+        //   'guestId': newRes.guestId,
+        //   'roomId': newRes.roomId
+        // }
       }).then(function handleResponse(response) {
         console.log('makeReservation response object is: ', response.data);
         return response.data;

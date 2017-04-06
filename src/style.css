@@ -12,6 +12,9 @@ header {
 
 footer {
   background-color: black;
-  color: white; }
+  color: white;
+  height: 3em; }
+  footer h5 {
+    padding-top: 1em; }
 
 /*# sourceMappingURL=style.css.map */

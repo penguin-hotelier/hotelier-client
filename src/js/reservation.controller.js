@@ -12,8 +12,14 @@
    */
   function ReservationController(ReservationService) {
     let vm = this;
-    console.log('get here?');
+    vm.newReservation = {};
     vm.reservations = ReservationService.getReservations();
+
+    vm.makeReservation = function makeReservation(newRes) {
+      console.log('ctrl.makeRes called?, newRes is', newRes);
+      ReservationService.makeReservation(newRes);
+    };
+
   }
 
 }());

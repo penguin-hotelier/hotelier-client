@@ -1,24 +1,24 @@
 <section>
   <h2>Create New Reservation</h2>
-  <form class="form">
-    <section class="form-group form-inline">
-      <label for="checkIn">Check in</label>
-      <input type="date" class="form-control" id="checkIn" placeholder="Email">
+  <form class='form' ng-submit='resCtrl.makeReservation(resCtrl.newReservation)'>
+    <section class='form-group form-inline'>
+      <label for='checkIn'>Check in</label>
+      <input type='date' ng-model='resCtrl.newReservation.checkinDate' class='form-control' id='checkIn' placeholder='Email'>
 
-      <label for="checkOut">Check out</label>
-      <input type="date" class="form-control" id="checkOut" placeholder="Password">
+      <label for='checkOut'>Check out</label>
+      <input type='date' ng-model='resCtrl.newReservation.checkoutDate' class='form-control' id='checkOut' placeholder='Password'>
     </section>
-    <section class="form-group form-inline">
-      <label for="numGuests">Number of Guests</label>
-      <input type="number" class="form-control" id="numGuests" min="1" placeholder="1";>
+    <section class='form-group form-inline'>
+      <label for='numGuests'>Number of Guests</label>
+      <input type='number' ng-model='resCtrl.newReservation.numberOfGuests' class='form-control' id='numGuests' min='1' placeholder='1';>
     </section>
-    <section class="form-group form-inline">
-      <label for="Guest">Guest</label>
-      <input type="number" class="form-control" id="Guest" min="1" placeholder="Guest ID #";>
+    <section class='form-group form-inline'>
+      <label for='Guest'>Guest</label>
+      <input type='number' ng-model='resCtrl.newReservation.guestId' class='form-control' id='Guest' min='1' placeholder='Guest ID #';>
 
-      <label for="Room">Room</label>
-      <input type="number" class="form-control" id="Room" min="1" placeholder="Room ID #";>
+      <label for='Room'>Room</label>
+      <input type='number' ng-model='resCtrl.newReservation.roomId' class='form-control' id='Room' min='1' placeholder='Room ID #';>
     </section>
-    <button type="submit" class="btn btn-primary">Make Reservation</button>
+    <button type='submit' class='btn btn-primary'>Make Reservation</button>
   </form>
 </section>

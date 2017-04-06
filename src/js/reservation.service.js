@@ -4,14 +4,14 @@
   angular.module('hotelier')
   .factory('ReservationService', ReservationService);
 
-  ReservationService.$inject = ['$http'];
+  ReservationService.$inject = ['$http', 'UserService'];
 
   /**
    * [Instantiates a ReservationService singleton]
    * @param  {Function} $http [AngularJS service that makes AJAX calls]
    * @return {Object}         [returns ReservationService methods]
    */
-  function ReservationService($http) {
+  function ReservationService($http, UserService) {
     /**
      * [returns all reservations from data API]
      * @return {Promise}
@@ -19,15 +19,41 @@
     function getReservations() {
       return $http({
         url: 'https://penguin-hotelier-api.herokuapp.com/api/Reservations',
-        method: 'get'
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/JSON',
+          'Authorization': UserService.getToken()
+        }
       }).then(function handleResponse(response) {
-        console.log(response.status);
+        return response.data;
+      });
+    }
+
+    function makeReservation(newRes) {
+      console.log('ResSvc.makeRes called');
+      return $http({
+        url: 'https://penguin-hotelier-api.herokuapp.com/api/Reservations',
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/JSON',
+          'Authorization': UserService.getToken()
+        },
+        data: {
+          'checkinDate': newRes.checkinDate,
+          'checkoutDate': newRes.checkoutDate,
+          'numberOfGuests': newRes.numberOfGuests,
+          'guestId': newRes.guestId,
+          'roomId': newRes.roomId
+        }
+      }).then(function handleResponse(response) {
+        console.log('makeReservation response object is: ', response.data);
         return response.data;
       });
     }
 
     return {
-      getReservations: getReservations
+      getReservations: getReservations,
+      makeReservation: makeReservation
     };
 
   }

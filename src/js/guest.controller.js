@@ -10,8 +10,9 @@
    * Creates GuestController's constructor
    *
    */
-  function GuestController() {
+  function GuestController(GuestService) {
     let vm = this;
+    console.log('Is guestcontroller running?');
 
     vm.newGuest = {};
 
@@ -20,11 +21,8 @@
      * to communicate the data
      * @return
      */
-    vm.createGuest = function createGuest() {
-
-      GuestService.createGuest() {
-        
-      }
+    vm.createGuest = function createGuest(newGuest) {
+      GuestService.createGuest(newGuest);
 
 
     };

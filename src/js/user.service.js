@@ -38,6 +38,9 @@
      * @return {Promise}
      */
     function login(email, password) {
+      if (!email.length || !password.length) {
+        return Promise.reject();
+      }
 
       return $http({
         url: 'https://penguin-hotelier-api.herokuapp.com/api/Staffs/login',

@@ -23,5 +23,4 @@
         templateUrl: 'views/WIP-home.template.html'
       });
   }
-
 }());

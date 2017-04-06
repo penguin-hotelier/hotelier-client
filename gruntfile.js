@@ -20,7 +20,17 @@ module.exports = function(grunt) {
             dest: 'build/views/'
           }
         ]
+      },
+      image: {
+        files: [
+          { expand: true,
+            cwd: 'src/images/',
+            src: '*.jpg',
+            dest: 'build/images/'
+          }
+        ]
       }
+
     },
 
     sass: {
@@ -42,23 +52,23 @@ module.exports = function(grunt) {
       }
     },
 
-    // karma: {
-    //   all: {
-    //     options: {
-    //       frameworks: ['mocha', 'chai'],
-    //       browsers: ['Chrome'],
-    //       singleRun: true,
-    //       files: [
-    //         'node_modules/angular/angular.js',
-    //         'node_modules/angular-mocks/angular-mocks.js',
-    //         'node_modules/angular-ui-router/release/angular-ui-router.js',
-    //         'src/js/hotelier.module.js',
-    //         'src/**/*.js',
-    //         'test/**/*.spec.js'
-    //       ]
-    //     }
-    //   }
-    // },
+    karma: {
+      all: {
+        options: {
+          frameworks: ['mocha', 'chai'],
+          browsers: ['Chrome'],
+          singleRun: true,
+          files: [
+            'node_modules/angular/angular.js',
+            'node_modules/angular-mocks/angular-mocks.js',
+            'node_modules/angular-ui-router/release/angular-ui-router.js',
+            'src/js/hotelier.module.js',
+            'src/**/*.js',
+            'test/**/*.spec.js'
+          ]
+        }
+      }
+    },
 
     concat: {
       alljs: {
@@ -92,6 +102,6 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['jshint', 'clean', 'concat', 'babel', 'copy', 'sass']);
+  grunt.registerTask('default', ['jshint', 'karma', 'clean', 'concat', 'babel', 'copy', 'sass']);
 
 };

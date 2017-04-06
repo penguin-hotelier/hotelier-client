@@ -14,6 +14,8 @@
     let vm = this;
 
     vm.loginInfo = {};
+    vm.hasError = false;
+    vm.message;
 
     /**
      * Staff login
@@ -24,6 +26,10 @@
       UserService.login(loginInfo.email, loginInfo.password)
         .then(function sendUserHome() {
           $state.go('home');
+        })
+        .catch(function handleErrors(errResponse) {
+          vm.hasError = true;
+          vm.message = 'There was an error with the server trying to login.';
         });
     };
   }

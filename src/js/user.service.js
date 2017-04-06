@@ -51,8 +51,11 @@
         }
       })
       .then(function handleResponse(responseObj) {
-        console.log('handleResponse', responseObj);
-        token = responseObj.data.id;
+        if ( responseObj.status > 199 && responseObj.status < 300 ) {
+          console.log('handleResponse', responseObj);
+          token = responseObj.data.id;
+        }
+
       });
 
     }

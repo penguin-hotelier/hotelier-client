@@ -28,7 +28,7 @@
       .state({
         name: 'home',
         url: '/',
-        templateUrl: 'views/WIP-home.template.html'
+        templateUrl: 'views/home.template.html'
       });
   }
 

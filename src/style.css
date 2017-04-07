@@ -10,6 +10,24 @@ header {
 .wip h1 {
   font-size: 32pt; }
 
+.room-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+  .room-list article {
+    width: 45%;
+    text-align: center;
+    border: 1px solid #666666;
+    border-radius: 0.5em;
+    margin: 1em 0; }
+    .room-list article:hover {
+      background-color: #711512;
+      color: #ffffff; }
+  .room-list footer {
+    background: none;
+    color: #666;
+    font-size: 0.9em; }
+
 footer {
   background-color: black;
   color: white; }

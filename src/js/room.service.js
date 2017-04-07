@@ -21,7 +21,7 @@
      */
     function getAll() {
       return $http({
-        url: 'http://penguin-hotelier-api.herokuapp.com/api/Rooms'
+        url: 'https://penguin-hotelier-api.herokuapp.com/api/Rooms'
       })
       .then(function handleResponse(response) {
         return response.data;

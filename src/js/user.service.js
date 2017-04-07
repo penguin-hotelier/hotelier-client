@@ -1,9 +1,8 @@
 (function() {
   'use strict';
-
+  
   angular.module('hotelier')
     .factory('UserService', UserService);
-
   UserService.$inject = ['$http'];
 
   /**
@@ -12,7 +11,6 @@
    * @return {Object}         The service's API methods
    */
   function UserService($http) {
-
     let token;
 
     /**
@@ -38,7 +36,6 @@
      * @return {Promise}
      */
     function login(email, password) {
-
       return $http({
         url: 'https://penguin-hotelier-api.herokuapp.com/api/Staffs/login',
         method: 'post',
@@ -54,14 +51,11 @@
         console.log('handleResponse', responseObj);
         token = responseObj.data.id;
       });
-
     }
-
     return {
       login: login,
       getToken: getToken,
       logout: logout
     };
-
   }
 }());

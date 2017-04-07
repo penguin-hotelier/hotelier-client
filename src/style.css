@@ -1,10 +1,10 @@
 header {
   background-image: url(images/red-wall.jpg);
-  height: 25vh;
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   color: white; }
   header h1 {
+    margin-top: 0;
     padding-top: 1.5em; }
 
 .wip h1 {
@@ -29,8 +29,11 @@ header {
     font-size: 0.9em; }
 
 footer {
-  background-color: black;
-  color: white; }
+  background-color: grey;
+  color: white;
+  height: 3em; }
+  footer h5 {
+    padding-top: 1em; }
 
 form-inline numGuests {
   margin-left: 15%; }

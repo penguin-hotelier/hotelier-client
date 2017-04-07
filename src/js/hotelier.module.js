@@ -12,6 +12,14 @@
 
     $stateProvider
       .state({
+        name: 'create-guest',
+        url: '/create-guest',
+        templateUrl: 'views/create-guest.template.html',
+        controller: 'GuestController',
+        controllerAs: 'guestCtrl'
+      })
+
+      .state({
         name: 'login',
         url: '/login',
         templateUrl: 'views/login.template.html',
@@ -31,5 +39,4 @@
         templateUrl: 'views/home.template.html'
       });
   }
-
 }());

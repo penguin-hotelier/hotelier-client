@@ -1,6 +1,6 @@
 <section ng-controller='LoginController as loginCtrl'>
     <h2>Staff Log In</h2>
-    <p ng-show='loginCtrl.hasError'>{{loginCtrl.message}}</p>
+    <p ng-show='loginCtrl.hasError' class='alert alert-warning'>{{loginCtrl.message}}</p>
     <form name='staff-login'
           ng-submit='loginCtrl.login(loginCtrl.loginInfo); staff-login.$setPristine(); staff-login.$setUntouched()'
           novalidate>

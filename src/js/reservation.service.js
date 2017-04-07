@@ -29,8 +29,15 @@
             });
         }
 
+        /**
+         * [makeReservation creates a new reservation]
+         * @param  {Object} newRes [new reservation Object]
+         * @return {Promise}
+         */
         function makeReservation(newRes) {
-            let jsonObj = angular.toJson(newRes);
+            if (typeof(newRes) !== 'object') {
+              return Promise.reject('New reservation object was invalid');
+            }
             return $http({
                 url: 'https://penguin-hotelier-api.herokuapp.com/api/Reservations',
                 method: 'post',
@@ -38,7 +45,13 @@
                     'Content-Type': 'application/JSON',
                     'Authorization': UserService.getToken()
                 },
-                data: jsonObj
+                data: angular.toJson({
+                    checkinDate: newRes.checkinDate,
+                    checkoutDate: newRes.checkoutDate,
+                    numberOfGuests: newRes.numberOfGuests,
+                    guestId: newRes.guestId,
+                    roomId: newRes.roomId
+                })
             }).then(function handleResponse(response) {
                 return response.data;
             });

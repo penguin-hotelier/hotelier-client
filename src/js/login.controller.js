@@ -3,7 +3,7 @@
 
   angular.module('hotelier')
     .controller('LoginController', LoginController);
-    
+
   LoginController.$inject = ['$state', 'UserService'];
 
   /**
@@ -14,7 +14,7 @@
     let vm = this;
     vm.loginInfo = {};
     vm.hasError = false;
-    vm.message;
+    vm.message = null;
 
     /**
      * Staff login

@@ -32,5 +32,4 @@
         templateUrl: 'views/home.template.html'
       });
   }
-
 }());

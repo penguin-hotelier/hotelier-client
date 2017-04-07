@@ -3,7 +3,7 @@
 
   angular.module('hotelier')
     .controller('LoginController', LoginController);
-
+    
   LoginController.$inject = ['$state', 'UserService'];
 
   /**
@@ -12,7 +12,6 @@
    */
   function LoginController($state, UserService) {
     let vm = this;
-
     vm.loginInfo = {};
 
     /**
@@ -27,5 +26,4 @@
         });
     };
   }
-
 }());

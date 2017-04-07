@@ -48,13 +48,6 @@
           'Authorization': UserService.getToken()
         },
         data: jsonObj
-        // data: {
-        //   'checkinDate': newRes.checkinDate,
-        //   'checkoutDate': newRes.checkoutDate,
-        //   'numberOfGuests': newRes.numberOfGuests,
-        //   'guestId': newRes.guestId,
-        //   'roomId': newRes.roomId
-        // }
       }).then(function handleResponse(response) {
         console.log('makeReservation response object is: ', response.data);
         return response.data;
@@ -65,6 +58,5 @@
       getReservations: getReservations,
       makeReservation: makeReservation
     };
-
   }
 }());

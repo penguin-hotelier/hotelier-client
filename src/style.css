@@ -17,4 +17,7 @@ footer {
 form-inline numGuests {
   margin-left: 15%; }
 
+.errorMessage {
+  color: red; }
+
 /*# sourceMappingURL=style.css.map */

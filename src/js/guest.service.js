@@ -32,6 +32,7 @@
                 data: jsonObj
             })
             .then(function handleResponse(responseObj) {
+                console.log('new guest object is:',responseObj.data);
                 return responseObj.data;
             });
       }

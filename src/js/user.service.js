@@ -22,6 +22,14 @@
     }
 
     /**
+     * Returns true or false based on whether a staff member is logged in.
+     * @return {Boolean} True if logged in.
+     */
+    function isLoggedIn() {
+      return !!getToken();
+    }
+
+    /**
      * Allows user to log out of system
      * @return {void}
      */
@@ -63,7 +71,8 @@
     return {
       login: login,
       getToken: getToken,
-      logout: logout
+      logout: logout,
+      isLoggedIn: isLoggedIn
     };
   }
 }());

@@ -27,6 +27,13 @@
         controllerAs: 'loginCtrl'
       })
       .state({
+        name: 'make-reservation',
+        url: '/make-reservation',
+        templateUrl: 'views/make-reservation.template.html',
+        controller: 'ReservationController',
+        controllerAs: 'resCtrl'
+      })
+      .state({
         name: 'home',
         url: '/',
         templateUrl: 'views/home.template.html'

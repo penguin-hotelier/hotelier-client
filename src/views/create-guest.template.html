@@ -1,0 +1,16 @@
+<h2>Create New Guest</h2>
+<form name='create-guest' ng-submit='guestCtrl.createGuest(guestCtrl.newGuest)'>
+    <aside>
+        <label for='client-name'>Name</label>
+        <input type='text' ng-model='guestCtrl.newGuest.fullName' placeholder='Client Name' name='name' id='client-name' required>
+    </aside>
+    <aside>
+        <label for='client-phone-number'>Phone Number</label>
+        <input type='text' ng-model='guestCtrl.newGuest.phone' name='phone-number' id='client-phone-number' required>
+    </aside>
+    <aside>
+        <label for='client-email'>Email</label>
+        <input type='email' ng-model='guestCtrl.newGuest.email' name='email' id='client-email'>
+    </aside>
+        <input type='submit' value='Create Guest'>
+</form>

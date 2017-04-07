@@ -23,7 +23,7 @@
                 headers: {
                     'Content-Type': 'application/JSON',
                     'Authorization': UserService.getToken()
-              }
+                }
             }).then(function handleResponse(response) {
               return response.data;
             });

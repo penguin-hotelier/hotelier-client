@@ -74,9 +74,7 @@
             })
             .then(function handleResponse(responseObj) {
                 if ( responseObj.status > 199 && responseObj.status < 300 ) {
-                    console.log('handleResponse', responseObj);
                     token = responseObj.data.id;
-                    console.log(token, 'this should return the token');
                     localStorage.setItem('token', token);
                 }
 

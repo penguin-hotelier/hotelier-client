@@ -3,7 +3,6 @@
 
   angular.module('hotelier')
     .factory('UserService', UserService);
-
   UserService.$inject = ['$http'];
 
   /**
@@ -12,7 +11,6 @@
    * @return {Object}         The service's API methods
    */
   function UserService($http) {
-
     let token;
 
     /**
@@ -38,6 +36,7 @@
      * @return {Promise}
      */
     function login(email, password) {
+
       if (typeof(email) !== 'string' || typeof(password) !== 'string' ||  !email.length || !password.length) {
         return Promise.reject('Valid credentials are required to login');
       }
@@ -60,14 +59,11 @@
         }
 
       });
-
     }
-
     return {
       login: login,
       getToken: getToken,
       logout: logout
     };
-
   }
 }());

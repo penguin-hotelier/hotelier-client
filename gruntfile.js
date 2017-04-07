@@ -60,7 +60,7 @@ module.exports = function(grunt) {
           jshintrc: '.jshintrc'
         },
         files: {
-          src: ['src/**/*/.js']
+          src: ['src/**/*.js']
         }
       }
     },
@@ -112,6 +112,6 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['jshint', 'karma', 'clean', 'concat', 'babel', 'copy', 'sass']);
+  grunt.registerTask('default', ['jshint', 'clean', 'concat', 'babel', 'copy', 'sass']);
 
 };

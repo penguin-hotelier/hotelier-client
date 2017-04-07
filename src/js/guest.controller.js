@@ -1,31 +1,30 @@
-  (function() {
-  'use strict';
+(function() {
+    'use strict';
 
-  angular.module('hotelier')
-    .controller('GuestController', GuestController);
+    angular.module('hotelier')
+        .controller('GuestController', GuestController);
 
-  GuestController.$inject = ['GuestService'];
-
-  /**
-   * Creates GuestController's constructor
-   *
-   */
-  function GuestController(GuestService) {
-    let vm = this;
-    console.log('Is guestcontroller running?');
-
-    vm.newGuest = {};
+    GuestController.$inject = ['GuestService'];
 
     /**
-     * Adds a new guest and uses GuestService
-     * to communicate the data
-     * @return
-     */
-    vm.createGuest = function createGuest(newGuest) {
-      GuestService.createGuest(newGuest);
+    * GuestController constructor
+    * @param {Object} GuestService The service singleton that faciliatates the
+    *                              user's entry of personal info.
+    * @return {void}
+    */
+    function GuestController(GuestService) {
+        let vm = this;
 
+        vm.newGuest = {};
 
-    };
-  }
-
+        /**
+        * Adds a new guest and uses GuestService to communicate the data
+        * @param  {Object} newGuest An object that contains all necessary guest info: name,
+        *                           email, and phone number
+        * @return {void}
+        */
+        vm.createGuest = function createGuest(newGuest) {
+            GuestService.createGuest(newGuest);
+        };
+    }
 }());

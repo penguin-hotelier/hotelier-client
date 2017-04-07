@@ -29,7 +29,7 @@
         })
         .catch(function handleErrors(errResponse) {
           vm.hasError = true;
-          vm.message = 'There was an error with the server trying to login.';
+          vm.message = 'Sorry, but that was not the correct email and/or password.';
         });
     };
   }

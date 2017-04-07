@@ -1,0 +1,25 @@
+.room-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  article {
+    width: 45%;
+    text-align: center;
+    border: 1px solid #666666;
+    border-radius: 0.5em;
+    margin: 1em 0;
+
+    &:hover {
+      background-color: #711512;
+      color: #ffffff;
+    }
+  }
+
+  footer {
+    background: none;
+    color: #666;
+    font-size: 0.9em;
+  }
+
+}

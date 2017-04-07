@@ -1,0 +1,10 @@
+
+
+<section class='room-list' ng-controller='RoomController as roomCtrl'>
+  <article ng-repeat='room in roomCtrl.rooms'>
+    <h3>Room {{room.number}}</h3>
+    <h4>Max Occupancy: {{room.maxOccupancy}}</h4>
+    <h4>Rate: {{room.rate | currency}}</h4>
+    <footer>{{room.id}}</footer>
+  </article>
+</section>

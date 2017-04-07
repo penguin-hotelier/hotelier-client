@@ -5,11 +5,20 @@
     .config(routerConfig);
 
   routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+
   function routerConfig($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when('', '/');
 
     $stateProvider
+      .state({
+        name: 'create-guest',
+        url: '/create-guest',
+        templateUrl: 'views/create-guest.template.html',
+        controller: 'GuestController',
+        controllerAs: 'guestCtrl'
+      })
+
       .state({
         name: 'login',
         url: '/login',

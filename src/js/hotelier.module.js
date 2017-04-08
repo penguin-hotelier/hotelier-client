@@ -49,16 +49,16 @@
             templateUrl: 'views/not-found.template.html'
         });
 
-        // setupAuthCheck.$inject = ['$rootScope', '$state', 'UserService'];
-        // function setupAuthCheck($rootScope, $state, UserService) {
-        //
-        //     //   $on()  ==> addEventListener()
-        //     $rootScope.$on('$stateChangeStart', function checkLoginStatus(eventObj, toState) {
-        //         if (toState.restricted && !UserService.getToken()) {
-        //             eventObj.preventDefault();
-        //             $state.go('login');
-        //         }
-        //     });
-        // }
+        setupAuthCheck.$inject = ['$rootScope', '$state', 'UserService'];
+        function setupAuthCheck($rootScope, $state, UserService) {
+
+            //   $on()  ==> addEventListener()
+            $rootScope.$on('$stateChangeStart', function checkLoginStatus(eventObj, toState) {
+                if (toState.restricted && !UserService.getToken()) {
+                    eventObj.preventDefault();
+                    $state.go('login');
+                }
+            });
+        }
     }
 }());

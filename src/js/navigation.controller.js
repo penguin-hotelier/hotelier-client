@@ -20,7 +20,7 @@
         * Determines if a user is presently logged in.
         * @return {Boolean} True if logged in.
         */
-        vm.loggedIn = function loggedIn() {
+        nc.loggedIn = function loggedIn() {
             return !!UserService.isLoggedIn();
         };
     }

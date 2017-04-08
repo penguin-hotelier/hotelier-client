@@ -36,8 +36,18 @@
             });
       }
 
+      /**
+       * [getGuestById returns Guest object matching an ID string]
+       * @param  {String} id  [ID of guest]
+       * @return {Promise}    [a promise handler must receive this]
+       */
+      function getGuestById(id) {
+
+
+      }
+
       return {
-        createGuest: createGuest
+          createGuest: createGuest
       };
     }
 }());

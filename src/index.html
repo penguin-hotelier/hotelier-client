@@ -29,6 +29,7 @@
               <li ng-hide='navCtrl.loggedIn()'><a ui-sref='login'>log in</a></li>
               <li ng-show='navCtrl.loggedIn()'><a ui-sref='create-guest'>create guest</a></li>
             <li ng-show='navCtrl.loggedIn()'><a ui-sref='make-reservation'>make reservation</a></li>
+            <li ng-show='navCtrl.loggedIn()'><a href='#' ng-click='navCtrl.logout()'>logout</a></li>
             </ul>
           </section>
         </section>
@@ -37,7 +38,7 @@
     <main ui-view>
     </main>
     <footer>
-      <h5>&copy; 2016 The Iron Yard Students</h5>
+      <h5>&copy; 2017 The Iron Yard Students</h5>
     </footer>
     <script src='/js/angular.js'></script>
     <script src='/js/angular-ui-router.js'></script>

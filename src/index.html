@@ -25,9 +25,10 @@
           </aside>
           <section class='collapse navbar-collapse' id='expand-nav'>
             <ul class='nav navbar-nav'>
-              <li class='active'><a ui-sref='home'>home<aside class='sr-only'>(current)</aside></a></li>
-              <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='login'>log in</a></li>
-              <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='create-guest'>create guest</a></li>
+              <li><a ui-sref='home'>home</a></li>
+              <li ng-hide='navCtrl.loggedIn()'><a ui-sref='login'>log in</a></li>
+              <li ng-show='navCtrl.loggedIn()'><a ui-sref='create-guest'>create guest</a></li>
+            <li ng-show='navCtrl.loggedIn()'><a ui-sref='make-reservation'>make reservation</a></li>
             </ul>
           </section>
         </section>

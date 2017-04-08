@@ -13,7 +13,7 @@
     <header>
       <h1>Hotelier</h1>
       <h4>Easier reservations for tomorrow, today.</h4>
-      <nav class='navbar navbar-default navbar-inverse navbar-static-top'>
+      <nav ng-controller='NavController as navCtrl' class='navbar navbar-default navbar-inverse navbar-static-top'>
         <section class='container-fluid'>
           <aside class='navbar-header'>
             <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#expand-nav' aria-expanded='false'>
@@ -25,9 +25,9 @@
           </aside>
           <section class='collapse navbar-collapse' id='expand-nav'>
             <ul class='nav navbar-nav'>
-              <li class='active'><a ui-sref='home'>home <aside class='sr-only'>(current)</aside></a></li>
-              <li><a ui-sref='login'>log in</a></li>
-              <li><a ui-sref='create-guest'>create guest</a></li>
+              <li class='active'><a ui-sref='home'>home<aside class='sr-only'>(current)</aside></a></li>
+              <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='login'>log in</a></li>
+              <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='create-guest'>create guest</a></li>
             </ul>
           </section>
         </section>

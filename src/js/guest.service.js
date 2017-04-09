@@ -54,9 +54,9 @@
                     'Content-Type': 'application/json',
                     'Authorization': UserService.getToken()
                 }
-          }).then(function handleResponse(responseObj) {
-              return responseObj.data;
-          });
+            }).then(function handleResponse(responseObj) {
+                return responseObj.data;
+            });
         }
 
 

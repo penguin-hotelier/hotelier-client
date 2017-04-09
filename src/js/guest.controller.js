@@ -27,18 +27,28 @@
         vm.createGuest = function createGuest(newGuest) {
             GuestService.createGuest(newGuest);
         };
-
         function getGuestById(id) {
             if (typeof(id) !== 'string' || id.length === 0) {
                 return;
             }
-            vm.storedReservation = GuestService.getGuestById(id);
-            console.log('guest object is', vm.storedReservation);
-            if (!vm.storedReservation) {
-                vm.hasError = true;
-                vm.errorMessage =
-                    'Sorry, guest was not returned from the database';
-            }
+            GuestService.getGuestById(id)
+                .then(function handleResponse(responseObj) {
+                    vm.storedReservation = responseObj;
+                })
+                .catch(function handleErr(error) {
+                    if (error.status === 401) {
+                        vm.hasError = true;
+                        vm.errorMessage =
+                            'Please log in and try again';
+                    } else if (error.status === 404) {
+                        vm.hasError = true;
+                        vm.errorMessage =
+                            'Could not find that guest by the id provided';
+                    } else {
+                        vm.hasError = true;
+                        vm.errorMessage = 'Unknown error from server';
+                    }
+                });
         }
     }
 }());

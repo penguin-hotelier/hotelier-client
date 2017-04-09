@@ -20,7 +20,9 @@
          * @return {Promise}         The api response (promise object)
          */
         function createGuest(newGuest) {
-            let jsonObj = angular.toJson(newGuest);
+            if(typeof(newGuest) !== 'object') {
+              return Promise.reject('New guest object was invalid');
+            }
 
             return $http({
                 url: 'https://penguin-hotelier-api.herokuapp.com/api/Guests',
@@ -29,7 +31,11 @@
                   'Content-Type': 'application/json',
                   'Authorization': UserService.getToken()
                 },
-                data: jsonObj
+                data: angular.toJson({
+                  fullName: newGuest.fullName,
+                  phone: newGuest.phone,
+                  email: newGuest.email
+                })
             })
             .then(function handleResponse(responseObj) {
                 return responseObj.data;

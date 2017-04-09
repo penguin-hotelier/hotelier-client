@@ -16,6 +16,7 @@
         let vm = this;
 
         vm.newGuest = {};
+        vm.storedGuest = false; // initialize as false
 
         /**
         * Adds a new guest and uses GuestService to communicate the data
@@ -26,5 +27,18 @@
         vm.createGuest = function createGuest(newGuest) {
             GuestService.createGuest(newGuest);
         };
+
+        function getGuestById(id) {
+            if (typeof(id) !== 'string' || id.length === 0) {
+                return;
+            }
+            vm.storedReservation = GuestService.getGuestById(id);
+            console.log('guest object is', vm.storedReservation);
+            if (!vm.storedReservation) {
+                vm.hasError = true;
+                vm.errorMessage =
+                    'Sorry, guest was not returned from the database';
+            }
+        }
     }
 }());

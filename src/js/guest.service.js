@@ -26,8 +26,8 @@
                 url: 'https://penguin-hotelier-api.herokuapp.com/api/Guests',
                 method: 'post',
                 headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': UserService.getToken()
+                    'Content-Type': 'application/json',
+                    'Authorization': UserService.getToken()
                 },
                 data: jsonObj
             })
@@ -41,13 +41,24 @@
        * @param  {String} id  [ID of guest]
        * @return {Promise}    [a promise handler must receive this]
        */
-      function getGuestById(id) {
-
-
+      function getGuestById(guestId) {
+          return $http({
+              url: 'https://penguin-hotelier-api.herokuapp.com/api/Guests:id',
+              method: 'get',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': UserService.getToken()
+              },
+              data: angular.toJson({id: guestId})
+          })
+          .then(function handleResponse(responseObj) {
+              return responseObj.data;
+          });
       }
 
       return {
-          createGuest: createGuest
+          createGuest: createGuest,
+          getGuestById: getGuestById
       };
     }
 }());

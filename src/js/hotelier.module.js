@@ -3,9 +3,8 @@
 
     angular.module('hotelier', ['ui.router'])
     .config(routerConfig)
-    // .run(function (setupAuthCheck)
-    ;
-
+    // .run(setupAuthCheck);
+;
     routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function routerConfig($stateProvider, $urlRouterProvider) {

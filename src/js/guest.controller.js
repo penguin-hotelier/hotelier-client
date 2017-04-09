@@ -16,7 +16,7 @@
         let vm = this;
 
         vm.newGuest = {};
-        vm.storedGuest = false; // initialize as false
+        vm.storedGuest = {};
 
         /**
         * Adds a new guest and uses GuestService to communicate the data
@@ -33,7 +33,7 @@
             }
             GuestService.getGuestById(id)
                 .then(function handleResponse(responseObj) {
-                    vm.storedReservation = responseObj;
+                    vm.storedGuest = responseObj;
                 })
                 .catch(function handleErr(error) {
                     if (error.status === 401) {

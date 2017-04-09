@@ -40,10 +40,29 @@
             .then(function handleResponse(responseObj) {
                 return responseObj.data;
             });
-      }
+        }
+
+        /**
+         * Returns all guests from the API
+         * @return {Promise}
+         */
+        function getGuests() {
+            return $http({
+                url: 'https://penguin-hotelier-api.herokuapp.com/api/Guests',
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': UserService.getToken()
+                }
+          }).then(function handleResponse(responseObj) {
+              return responseObj.data;
+          });
+        }
+
 
       return {
-        createGuest: createGuest
+        createGuest: createGuest,
+        getGuests: getGuests
       };
     }
 }());

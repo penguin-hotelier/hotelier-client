@@ -73,11 +73,8 @@
                 }
             })
             .then(function handleResponse(responseObj) {
-                if ( responseObj.status > 199 && responseObj.status < 300 ) {
-                    token = responseObj.data.id;
-                    localStorage.setItem('token', token);
-                }
-
+                token = responseObj.data.id;
+                localStorage.setItem('token', token);
             });
         }
         return {

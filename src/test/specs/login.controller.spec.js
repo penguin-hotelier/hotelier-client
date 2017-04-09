@@ -2,6 +2,4 @@
     'use strict';
 
     let expect = chai.expect;
-
-    
 }());

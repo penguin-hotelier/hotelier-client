@@ -5,6 +5,7 @@
 
     describe('login service', function() {
         let UserService;
+        let $httpBackend;
         let mockUserService = {};
 
         beforeEach(module('hotelier'));
@@ -13,12 +14,19 @@
             $provide.value('UserService', UserService);
         }));
 
-        beforeEach(inject(function(_UserService_) {
+        beforeEach(inject(function(_$httpBackend_, _UserService_) {
             UserService = _UserService_;
+            $httpBackend = _$httpBackend_;
 
             mockUserService.getToken = function getToken() {
                 return '7y3h68j940k30mr7j4rr3w96h37g60';
             };
+
+            $httpBackend
+                .whenPOST('https://penguin-hotelier-api.herokuapp.com/api/Staffs/login')
+                .respond({
+                    //not sure what goes in here
+                });
         }));
 
         describe('login', function() {
@@ -32,10 +40,12 @@
                     done('We should not resolve with a bad argument');
                 })
                 .catch(function handleError(err) {
-                    //TODO add assertions on the err- see shopular notes
+                    //TODO add assertions on the err object
                     done();
                 });
             });
+
+            $httpBackend.flush();
         });
 
     });

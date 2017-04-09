@@ -6,46 +6,44 @@
     describe('login service', function() {
         let UserService;
         let $httpBackend;
-        let mockUserService = {};
 
         beforeEach(module('hotelier'));
 
-        beforeEach(module(function($provide) {
-            $provide.value('UserService', UserService);
-        }));
-
         beforeEach(inject(function(_$httpBackend_, _UserService_) {
-            UserService = _UserService_;
             $httpBackend = _$httpBackend_;
-
-            mockUserService.getToken = function getToken() {
-                return '7y3h68j940k30mr7j4rr3w96h37g60';
-            };
+            UserService = _UserService_;
 
             $httpBackend
                 .whenPOST('https://penguin-hotelier-api.herokuapp.com/api/Staffs/login')
                 .respond({
-                    //not sure what goes in here
+                    'created':'2017-04-09T19:38:01.521Z',
+                    'id':'QQN70y319v5RbuogyQypYnLk0DnAxGv1dVem6U9v5fWT1FAPzjzdwxjlNVH4gOPl',
+                    'ttl':1209600,
+                    'userId':'58dfeeaa81a0f30011e7d2f0'
                 });
         }));
 
+        afterEach(function() {
+            localStorage.removeItem('token');
+        });
+
         describe('login', function() {
-            it('should fail if a string is not provided', function() {
-                let returnValue = UserService.login({email: 'jordan@hotelier.com', password: 'foobar'});
+            it('should work if an email and password are provided', function(done) {
+                let returnValue = UserService.login('jordan@hotelier.com', 'foobar');
                 expect(returnValue.then).to.be.a('function');
                 expect(returnValue.catch).to.be.a('function');
 
                 returnValue
                 .then(function() {
-                    done('We should not resolve with a bad argument');
+                    expect(localStorage.getItem('token')).to.equal('QQN70y319v5RbuogyQypYnLk0DnAxGv1dVem6U9v5fWT1FAPzjzdwxjlNVH4gOPl');
+                    done();
                 })
                 .catch(function handleError(err) {
-                    //TODO add assertions on the err object
-                    done();
+                    done(err);
                 });
+                $httpBackend.flush();
             });
 
-            $httpBackend.flush();
         });
 
     });

@@ -3,6 +3,7 @@
 
     angular.module('hotelier')
         .factory('UserService', UserService);
+        
     UserService.$inject = ['$http'];
 
     /**
@@ -77,7 +78,6 @@
                     token = responseObj.data.id;
                     localStorage.setItem('token', token);
                 }
-
             });
         }
         return {

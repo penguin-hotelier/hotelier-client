@@ -3,9 +3,10 @@
 
     angular.module('hotelier', ['ui.router'])
     .config(routerConfig)
-    .run(setupAuthCheck);
+    // .run(setupAuthCheck)
+    ;
 
-    routerConfig.$inject = ['$stateProvider', '$urlRouterProvider', UserService];
+    routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function routerConfig($stateProvider, $urlRouterProvider) {
 
@@ -17,7 +18,9 @@
         .state({
             name: 'home',
             url: '/',
-            templateUrl: 'views/home.template.html'
+            templateUrl: 'views/home.template.html',
+            controller: 'NavController',
+            controllerAs: 'navCtrl'
         })
         .state({
             name: 'login',
@@ -34,7 +37,6 @@
             controllerAs: 'guestCtrl',
             restricted: true
         })
-
         .state({
             name: 'make-reservation',
             url: '/make-reservation',
@@ -50,13 +52,17 @@
         });
 
         setupAuthCheck.$inject = ['$rootScope', '$state', 'UserService'];
-        function setupAuthCheck($rootScope, $state, UserService) {
 
+        function setupAuthCheck($rootScope, $state, UserService) {
+            // event handler here
             //   $on()  ==> addEventListener()
             $rootScope.$on('$stateChangeStart', function checkLoginStatus(eventObj, toState) {
-                if (toState.restricted && !UserService.getToken()) {
+                if (toState.restricted && !UserService.isLoggedIn()) {
                     eventObj.preventDefault();
                     $state.go('login');
+                }
+                else {
+                    $state.go(toState);
                 }
             });
         }

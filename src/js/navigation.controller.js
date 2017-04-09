@@ -6,13 +6,13 @@
 
     NavController.$inject = ['UserService'];
     function NavController(UserService) {
-        let nc = this;
+        let vm = this;
 
         /**
         * Allows the user to logout
         * @return {Void}
         */
-        nc.logout = function logout() {
+        vm.logout = function logout() {
             UserService.logout();
         };
 
@@ -20,7 +20,7 @@
         * Determines if a user is presently logged in.
         * @return {Boolean} True if logged in.
         */
-        nc.loggedIn = function loggedIn() {
+        vm.loggedIn = function loggedIn() {
             return !!UserService.isLoggedIn();
         };
     }

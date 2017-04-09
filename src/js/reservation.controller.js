@@ -14,6 +14,7 @@
         let vm = this;
         vm.newReservation = {};
         vm.reservations = ReservationService.getReservations();
+        vm.storedReservation = false; // initialize as falsey
 
         // error message and state
         // for Controller to send to the View as necessary
@@ -30,13 +31,12 @@
           if (!newRes || newRes.length === 0 ||
             Array.isArray(newRes) || typeof(newRes) !== 'object') {
               vm.hasError = true;
-              vm.errorMessage = 'Sorry, invalid reservation information provided';
+              vm.errorMessage =
+                  'Sorry, invalid reservation information provided';
               return;
             }
 
-        ReservationService.makeReservation(newRes);
-      };
-
+            ReservationService.makeReservation(newRes);
+        };
     }
-
 }());

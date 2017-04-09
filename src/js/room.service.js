@@ -28,8 +28,23 @@
       });
     }
 
+    function getRoomById(roomId) {
+        return $http({
+          url: 'https://penguin-hotelier-api.herokuapp.com/api/Rooms/' +
+              roomId,
+          method: 'get',
+          headers: {
+              'Content-Type': 'application/json',
+          }
+        })
+        .then(function handleResponse(responseObj) {
+            return responseObj.data;
+        });
+    }
+
     return {
-      getAll: getAll
+      getAll: getAll,
+      getRoomById: getRoomById
     };
   }
 })();

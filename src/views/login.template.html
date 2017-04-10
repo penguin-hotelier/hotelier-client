@@ -4,14 +4,14 @@
     <form name='staff-login'
           ng-submit='loginCtrl.login(loginCtrl.loginInfo); staff-login.$setPristine(); staff-login.$setUntouched()'
           novalidate>
-        <aside>
+        <aside class='formElm'>
             <label for='staff-email-for-login'>Email</label>
             <input type='email' class='form-control' placeholder='Staff Email' name='email' id='staff-email-for-login' ng-model='loginCtrl.loginInfo.email' required>
         </aside>
-        <aside>
+        <aside class='formElm'>
             <label for='staff-password-for-login'>Password</label>
             <input type='password' class='form-control' placeholder='Password' name='password' id='staff-password-for-login' ng-model='loginCtrl.loginInfo.password' required>
         </aside>
-        <input type='submit' class='btn btn-info' value='Log In'>
+        <input type='submit' class='btn btn-info formElm' value='Log In'>
     </form>
 </section>

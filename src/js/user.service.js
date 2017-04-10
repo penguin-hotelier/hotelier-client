@@ -3,6 +3,7 @@
 
     angular.module('hotelier')
         .factory('UserService', UserService);
+
     UserService.$inject = ['$http'];
 
     /**
@@ -34,17 +35,16 @@
         * @return {void}
         */
         function logout() {
-            token = null;
-            localStorage.removeItem('token');
-
             return $http({
                 url: 'https://penguin-hotelier-api.herokuapp.com/api/Staffs/logout',
                 method: 'post',
                 headers: {
-                    'Authorization': UserService.getToken()
+                    'Authorization': getToken()
                 }
             })
             .then(function handleResponse(response) {
+                localStorage.removeItem('token');
+                token = null;
                 console.info(response, 'we want to know what lives in here');
             });
         }
@@ -73,8 +73,10 @@
                 }
             })
             .then(function handleResponse(responseObj) {
-                token = responseObj.data.id;
-                localStorage.setItem('token', token);
+                if ( responseObj.status > 199 && responseObj.status < 300 ) {
+                    token = responseObj.data.id;
+                    localStorage.setItem('token', token);
+                }
             });
         }
         return {

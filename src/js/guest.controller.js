@@ -8,8 +8,7 @@
 
     /**
     * GuestController constructor
-    * @param {Object} GuestService The service singleton that facilitates the
-    *                              user's entry of personal info.
+    * @param {Object} GuestService The service singleton that facilitates the user's entry of personal info.
     * @return {void}
     */
     function GuestController(GuestService) {

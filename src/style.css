@@ -48,6 +48,9 @@ form {
   @media screen and (min-width: 35em) {
     form {
       padding: 0 20%; } }
+  @media screen and (min-width: 70em) {
+    form {
+      padding: 0 28%; } }
 
 @media screen and (min-width: 35em) {
   h2 {

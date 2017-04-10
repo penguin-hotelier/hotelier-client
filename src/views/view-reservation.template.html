@@ -1,7 +1,16 @@
-<section class='room-list' ng-controller='ReservationController as resCtrl'
-    ng-show='resCtrl.storedReservation'>
+<section class='room-list' ng-controller='ReservationController as resCtrl'>
+    <h1>Reservation #{{resCtrl.storedReservation.id}}</h1>
     <article>
-        <!-- <h3>Room {{resCtrl.storedReservation.}} -->
+        <h3>John Doe</h3>
+        <h4>john@doe.com</h4>
+        <h4>123-456-7890</h4>
     </article>
+    <article>
+        <h3>Room #130</h3>
+        <h4>Max Occupancy: 4</h4>
+    </article>
+    <footer>Check in: {{resCtrl.storedReservation.checkinDate}}
+        Check out: {{resCtrl.storedReservation.checkoutDate}}
+    </footer>
 
 </section>

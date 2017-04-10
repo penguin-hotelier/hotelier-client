@@ -3,8 +3,8 @@
 
     angular.module('hotelier', ['ui.router'])
     .config(routerConfig)
-    // .run(setupAuthCheck);
-;
+    /* .run(setupAuthCheck)*/;
+  
     routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function routerConfig($stateProvider, $urlRouterProvider) {
@@ -27,6 +27,13 @@
             templateUrl: 'views/login.template.html',
             controller: 'LoginController',
             controllerAs: 'loginCtrl'
+        })
+        .state({
+            name: 'view-reservation',
+            url: '/view-reservation/:id',// $stateParams will call function
+            templateUrl: 'views/view-reservation.template.html',
+            controller: 'ReservationController',
+            controllerAs: 'resCtrl'
         })
         .state({
             name: 'create-guest',

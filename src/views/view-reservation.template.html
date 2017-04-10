@@ -1,0 +1,16 @@
+<section class='room-list'>
+    <h1>Reservation #{{resCtrl.reservationDetail.id}}</h1>
+    <article>
+        <h3>{{resCtrl.reservationDetail.guest.fullName}}</h3>
+        <h4>{{resCtrl.reservationDetail.guest.email}}</h4>
+        <h4>{{resCtrl.reservationDetail.guest.phone}}</h4>
+    </article>
+    <article>
+        <h3>Room #{{resCtrl.reservationDetail.room.number}}</h3>
+        <h4>Max Occupancy: {{resCtrl.reservationDetail.room.maxOccupancy}}</h4>
+    </article>
+    <footer>Check in: {{resCtrl.reservationDetail.checkinDate}}
+        Check out: {{resCtrl.reservationDetail.checkoutDate}}
+    </footer>
+
+</section>

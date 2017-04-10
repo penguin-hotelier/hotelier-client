@@ -57,9 +57,32 @@
             });
         }
 
+        /**
+         * [getSingleRes obtains a reservation object]
+         * @param  {String} id [ID for a single reservation]
+         * @return {Promise}
+         */
+        function getSingleReservation(id) {
+            if (!id || typeof(id) !=='string' || id.length === 0) {
+                return Promise.reject('Reservation id was invalid');
+            }
+            return $http({
+                url:
+                    'https://penguin-hotelier-api.herokuapp.com/api/Reservations/' + id,
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/JSON',
+                }
+            }).then(function handleResponse(response){
+                    return response.data;
+            });
+
+        }
+
         return {
             getReservations: getReservations,
-            makeReservation: makeReservation
+            makeReservation: makeReservation,
+            getSingleReservation: getSingleReservation
         };
     }
 }());

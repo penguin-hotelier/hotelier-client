@@ -34,7 +34,7 @@
             })
             .state({
                 name: 'view-reservation',
-                url: '/view-reservation',
+                url: '/view-reservation/:id',// $stateParams will call function
                 templateUrl: 'views/view-reservation.template.html',
                 controller: 'ReservationController',
                 controllerAs: 'resCtrl'

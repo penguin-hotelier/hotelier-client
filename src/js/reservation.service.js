@@ -62,11 +62,10 @@
          * @param  {String} id [ID for a single reservation]
          * @return {Promise}
          */
-        function getSingleRes(id) {
+        function getSingleReservation(id) {
             if (!id || typeof(id) !=='string' || id.length === 0) {
                 return Promise.reject('Reservation id was invalid');
             }
-
             return $http({
                 url:
                     'https://penguin-hotelier-api.herokuapp.com/api/Reservations/' + id,
@@ -83,7 +82,7 @@
         return {
             getReservations: getReservations,
             makeReservation: makeReservation,
-            getSingleRes: getSingleRes
+            getSingleReservation: getSingleReservation
         };
     }
 }());

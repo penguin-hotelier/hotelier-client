@@ -28,7 +28,7 @@
       })
       .state({
         name: 'make-reservation',
-        url: '/make-reservation',
+        url: '/create-reservation',
         templateUrl: 'views/make-reservation.template.html',
         controller: 'ReservationController',
         controllerAs: 'resCtrl'

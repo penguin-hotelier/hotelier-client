@@ -13,13 +13,30 @@
     function ReservationController(ReservationService) {
         let vm = this;
         vm.newReservation = {};
-        vm.reservations = ReservationService.getReservations();
+        vm.reservations = [];
         vm.storedReservation = false; // initialize as falsey
 
         // error message and state
         // for Controller to send to the View as necessary
         vm.errorMessage = null;
         vm.hasError = false;
+
+
+        vm.getReservations = function getReservations() {
+          ReservationService.getReservations()
+            .then(function handleReservationData(reservations) {
+              vm.reservations = reservations;
+            })
+            .catch(function handleErrors(errResponse) {
+                console.warn(errResponse);
+                vm.hasError = true;
+                if (errResponse.status === 404) {
+                    vm.message = 'Sorry, the API URL was incorrect';
+                } else {
+                    vm.message = 'Server error';
+                }
+            });
+        };
 
         /**
          * [makeReservation description]

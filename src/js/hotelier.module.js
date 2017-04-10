@@ -37,6 +37,13 @@
         name: 'home',
         url: '/',
         templateUrl: 'views/home.template.html'
+      })
+      .state({
+        name: 'upcoming-reservations',
+        url: '/upcoming-reservations',
+        templateUrl: 'views/upcoming-reservations.template.html',
+        controller: 'ReservationController',
+        controllerAs: 'resCtrl'
       });
   }
 }());

@@ -28,8 +28,8 @@
                 url: 'https://penguin-hotelier-api.herokuapp.com/api/Guests',
                 method: 'post',
                 headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': UserService.getToken()
+                    'Content-Type': 'application/json',
+                    'Authorization': UserService.getToken()
                 },
                 data: angular.toJson({
                   fullName: newGuest.fullName,
@@ -60,9 +60,29 @@
         }
 
 
+      /**
+       * [getGuestById returns Guest object matching an ID string]
+       * @param  {String} id  [ID of guest]
+       * @return {Promise}    [a promise handler must receive this]
+       */
+      function getGuestById(guestId) {
+          return $http({
+              url: 'https://penguin-hotelier-api.herokuapp.com/api/Guests/' +
+                  guestId,
+              method: 'get',
+              headers: {
+                  'Content-Type': 'application/json',
+              }
+          })
+          .then(function handleResponse(responseObj) {
+              return responseObj.data;
+          });
+      }
+
       return {
-        createGuest: createGuest,
-        getGuests: getGuests
+          createGuest: createGuest,
+          getGuestById: getGuestById,
+          getGuests: getGuests
       };
     }
 }());

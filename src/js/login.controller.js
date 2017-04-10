@@ -19,7 +19,7 @@
         /**
         * Staff login
         * @param {Object} loginInfo Staff login credentials
-        * @return {void}
+        * @return {Promise}
         */
         vm.login = function login(loginInfo) {
             UserService.login(loginInfo.email, loginInfo.password)

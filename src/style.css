@@ -41,4 +41,9 @@ form-inline numGuests {
 .errorMessage {
   color: red; }
 
+form {
+  padding: 0 5%; }
+  form .formElm {
+    margin: .5em; }
+
 /*# sourceMappingURL=style.css.map */

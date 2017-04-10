@@ -18,6 +18,7 @@
 
         /**
         * Staff login
+
         * @param {Object} loginInfo Staff login credentials: email, password
         * @return {void}
         */

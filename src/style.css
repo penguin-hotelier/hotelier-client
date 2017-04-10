@@ -41,4 +41,22 @@ form-inline numGuests {
 .errorMessage {
   color: red; }
 
+form {
+  padding: 0 5%; }
+  form .formElm {
+    margin: .5em; }
+  @media screen and (min-width: 35em) {
+    form {
+      padding: 0 20%; } }
+  @media screen and (min-width: 70em) {
+    form {
+      padding: 0 28%; } }
+
+@media screen and (min-width: 35em) {
+  h2 {
+    margin-left: 20px; }
+
+  p {
+    margin: 0 20px; } }
+
 /*# sourceMappingURL=style.css.map */

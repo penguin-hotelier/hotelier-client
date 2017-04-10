@@ -9,9 +9,8 @@
         beforeEach(module('hotelier'));
 
         before(inject(function(_GuestService_) {
-            GuestService = _UserService_;
+            GuestService = _GuestService_;
         }));
-
 
         describe('getting all guests', function() {
             it('should be able to give us an array of guests', function() {
